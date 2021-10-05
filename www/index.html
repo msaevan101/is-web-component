@@ -4,7 +4,21 @@
 
     is-alert, is-pagination {
       margin: 10px 0;
-    }</style> </head> <body> <is-alert color="light" rounded=""> <strong>Holy guacamole 1!</strong> You should check in on some of those fields below. </is-alert> <is-alert color="light" auto-close="" rounded=""> <strong>Auto close in 3 seconds!</strong> You should check in on some of those fields below. </is-alert> <is-alert color="light" auto-close="" close-secs="10" rounded=""> <strong>Auto close in 10 seconds!</strong> You should check in on some of those fields below. </is-alert> <is-alert color="light" rounded=""> <strong>Holy guacamole 3!</strong> You should check in on some of those fields below. </is-alert> <is-alert color="success" rounded="" closeable="false"> <h4 class="alert-heading">Well done!</h4> <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so
+    }
+.preload {
+   width:75px;
+   height: 75px;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   background: #fff;
+}
+
+
+</style> </head> <body> <div class="spinner-border text-primary preload" role="status">
+   <span class="sr-only">Loading...</span>
+</div>
+  <is-alert color="light" rounded=""> <strong>Holy guacamole 1!</strong> You should check in on some of those fields below. </is-alert> <is-alert color="light" auto-close="" rounded=""> <strong>Auto close in 3 seconds!</strong> You should check in on some of those fields below. </is-alert> <is-alert color="light" auto-close="" close-secs="10" rounded=""> <strong>Auto close in 10 seconds!</strong> You should check in on some of those fields below. </is-alert> <is-alert color="light" rounded=""> <strong>Holy guacamole 3!</strong> You should check in on some of those fields below. </is-alert> <is-alert color="success" rounded="" closeable="false"> <h4 class="alert-heading">Well done!</h4> <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so
     that you can see how spacing within an alert works with this kind of content.</p> <hr> <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> </is-alert> <br> <is-multiselect id="select1" show-selected-badge="true" limit="2" placeholder="Pilih katalog"></is-multiselect> <pre id="result1"></pre> <is-multiselect id="select2" label-selected="selected" max="3"></is-multiselect> <pre id="result2"></pre> <is-badge color="success" rounded="" text="Get Items" onclick="setResult()"></is-badge> <is-badge id="disable1" color="dark" rounded="" text="Disable Select 1" onclick="setDisabled('1')"></is-badge> <is-badge id="disable2" color="dark" rounded="" text="Disable Select 2" onclick="setDisabled('2')"></is-badge> <is-readmore id="readmore" style="max-width: 980px;"> <h1>Readmore Demo</h1> <p style="text-align: justify;"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
     aliqua. Tellus elementum sagittis vitae et leo duis. Magna etiam tempor orci eu lobortis elementum nibh tellus.
     Tortor at auctor urna nunc id cursus metus. Nulla facilisi nullam vehicula ipsum a arcu cursus. Vestibulum rhoncus
@@ -24,6 +38,13 @@
     disable1: false,
     disable2: false
   };
+      
+  $(function() {
+   $(".preload").fadeOut(function() {
+        $(".content").fadeIn();
+     });
+   });
+
 
   const limitText = (count) => {
     return `dan ${count} lagi`;
